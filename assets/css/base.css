@@ -5,12 +5,12 @@
     padding: 0;
 }
 
-body {
+body { /*D*/
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: #1f2328;
-    background: #f6f8fa;
+    color: #1E3856;
+    background: #F7F9FC;    /*#F2FFFE*/
     padding: 20px;
 }
 
@@ -37,21 +37,21 @@ main {
     padding: 24px 16px;
 }
 
-header, footer {
-    background: white;
-    border: 1px solid #d0d7de;
+header, footer { /*D*/
+    background: #2C517C;
+    border: 1px solid #2C517C;
     padding: 16px 24px;
 }
 
-header {
+header { /*D*/
     display: flex;
     flex-direction: column;
     gap: 12px;
     border-radius: 6px 6px 0 0;
 }
 
-header a {
-    color: #1f2328;
+header a { /*D*/
+    color: #F2FFFE;
     text-decoration: none;
     font-weight: bold;
 }
@@ -62,16 +62,19 @@ nav {
     gap: 8px;
 }
 
-nav a {
+nav a { /*D*/
     padding: 6px 12px;
     border-radius: 6px;
-    background: #f3f4f6;
-    color: #1f2328;
+   background: transparent;
+    color: #F2FFFE;
     text-decoration: none;
+   
 }
 
 nav a:hover, article a:hover, section > a:hover {
-    background: #f6f8fa;
+    background: #A5DBFF;
+    color: #2C517C;
+
 }
 
 section, article {
@@ -116,14 +119,16 @@ article > header {
     margin-top: auto;
 }
 
-.codigo {
+.codigo {   /* D*/
     display: inline-block;
+    align-self: flex-start;
     padding: 3px 8px;
     border-radius: 20px;
-    background: #f6f8fa;
-    color: #656d76;
+    background: #CFEFFF;
+    color: #2C517C;
     font-size: 14px;
     font-weight: bold;
+
 }
 
 .precio {
@@ -141,21 +146,21 @@ article a, section > a {
     text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 { /*D*/
     margin: 24px 0 16px;
-    color: #1f2328;
+    color: #2C517C;
     line-height: 1.25;
 }
 
 h1 {
     font-size: 32px;
-    border-bottom: 1px solid #d0d7de;
+    border-bottom: 1px solid #CFEFFF;
     padding-bottom: 8px;
 }
 
 h2 {
     font-size: 24px;
-    border-bottom: 1px solid #d0d7de;
+    border-bottom: 1px solid #CFEFFF;
     padding-bottom: 8px;
 }
 
@@ -259,19 +264,21 @@ input[type="checkbox"] + label {
     max-width: none;
 }
 
-button {
+button { /*D*/
     padding: 8px 16px;
-    border: 1px solid #1a7f37;
+    border: 1px solid #68B0FF;
     border-radius: 6px;
-    background: #1f883d;
-    color: white;
+    background:  #2C517C;                         /* #68B0FF;    */  
+    color: #F2FFFE;
     font: inherit;
     font-weight: bold;
     cursor: pointer;
 }
 
-button:hover {
-    background: #1a7f37;
+button:hover { /*D*/
+    background: #3975b6;     /*#4e92db*/
+    border-color: #2C517C;
+    color: #F2FFFE;
 }
 
 .sr-only {
@@ -289,7 +296,11 @@ footer {
     margin-top: 24px;
     border-radius: 0 0 6px 6px;
     text-align: center;
-    color: #656d76;
+    color: #CFEFFF;
+
+}
+footer a { 
+  color: #A5DBFF; 
 }
 
 footer ul {
