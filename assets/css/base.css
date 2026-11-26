@@ -56,6 +56,15 @@ header a { /*D*/
     font-weight: bold;
 }
 
+header a .logo-sitio {
+    display: block;
+    width: auto;
+    height: 48px;
+    max-width: 100%;
+    border-radius: 0;
+    object-fit: contain;
+}
+
 nav {
     display: flex;
     flex-wrap: wrap;
