@@ -117,6 +117,14 @@ article > header {
     grid-column: 1 / -1;
 }
 
+.eventos-layout__tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-column: 1 / -1;
+    width: 100%;
+    gap: 16px;
+}
+
 .evento-card {
     display: flex;
     flex-direction: column;
@@ -124,6 +132,11 @@ article > header {
 }
 
 .evento-card > a {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.evento-card > button.boton {
     align-self: flex-start;
     margin-top: auto;
 }
@@ -366,5 +379,17 @@ footer p {
 
     main {
         padding: 32px 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .eventos-layout__tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .eventos-layout__tarjetas {
+        grid-template-columns: 1fr;
     }
 }
