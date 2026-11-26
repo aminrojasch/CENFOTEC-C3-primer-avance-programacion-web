@@ -6,6 +6,10 @@
     <title>Reservar | QuestPass CR</title>
     <meta name="description" content="Formulario de solicitud de reserva para experiencias en QuestPass CR.">
     <link rel="stylesheet" href="assets/css/base.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/datos.js" defer></script>
+    <script src="assets/js/reserva.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
@@ -29,7 +33,7 @@
 
         <section aria-labelledby="titulo-reserva">
         <h2 id="titulo-reserva">Completa tus datos</h2>
-        <form id="formulario-reserva">
+        <form id="formulario-reserva" novalidate>
 
             <!-- Grupo 1: Datos personales del cliente -->
             <fieldset>
@@ -37,17 +41,20 @@
 
                 <p>
                     <label for="nombre">Nombre completo:</label><br>
-                    <input type="text" id="nombre" name="nombre" minlength="3" maxlength="60" required>
+                    <input type="text" id="nombre" name="nombre" minlength="3" maxlength="60" required autofocus aria-describedby="error-nombre">
+                    <span id="error-nombre" class="mensaje-error" hidden>Ingrese un nombre de al menos 3 caracteres.</span>
                 </p>
 
                 <p>
                     <label for="correo">Correo electrónico:</label><br>
-                    <input type="email" id="correo" name="correo" required>
+                    <input type="email" id="correo" name="correo" required aria-describedby="error-correo">
+                    <span id="error-correo" class="mensaje-error" hidden>Ingrese un correo válido.</span>
                 </p>
 
                 <p>
                     <label for="telefono">Teléfono de contacto:</label><br>
-                    <input type="tel" id="telefono" name="telefono" maxlength="8" minlength="8" required placeholder="8888-8888">
+                    <input type="tel" id="telefono" name="telefono" required pattern="(?:[0-9]{8}|[0-9]{4}-[0-9]{4})" placeholder="8888-8888" aria-describedby="error-telefono">
+                    <span id="error-telefono" class="mensaje-error" hidden>Use ocho dígitos, juntos o separados por guion.</span>
                 </p>
             </fieldset>
 
@@ -57,20 +64,16 @@
 
                 <p>
                     <label for="experiencia">Seleccione la experiencia:</label><br>
-                    <select id="experiencia" name="experiencia" required>
-                        <option value="">-- Seleccionar una opción --</option>
-                        <option value="QST-001">QST-001 · El Archivo 47</option>
-                        <option value="QST-002">QST-002 · Retro Arena 16-Bit</option>
-                        <option value="QST-003">QST-003 · Cosplay SOS: de cero a personaje</option>
-                        <option value="QST-004">QST-004 · Multiverso Geek: Trivia en vivo</option>
-                        <option value="QST-005">QST-005 · Primera misión: D&D para principiantes</option>
-                        <option value="QST-006">QST-006 · Miniaturas: pintura rápida</option>
+                    <select id="experiencia" name="experiencia" required aria-describedby="error-experiencia">
+                    <option value="">-- Seleccionar una opción --</option>
                     </select>
+                    <span id="error-experiencia" class="mensaje-error" hidden>Seleccione una experiencia.</span>
                 </p>
 
                 <p>
                     <label for="entradas">Cantidad de entradas (1 a 4):</label><br>
-                    <input type="number" id="entradas" name="entradas" min="1" max="4" required>
+                    <input type="number" id="entradas" name="entradas" min="1" max="4" step="1" required aria-describedby="error-entradas">
+                    <span id="error-entradas" class="mensaje-error" hidden>Ingrese un entero entre 1 y 4.</span>
                 </p>
             </fieldset>
 
@@ -79,8 +82,9 @@
                 <legend>Condiciones del servicio</legend>
 
                 <p>
-                    <input type="checkbox" id="condiciones" name="condiciones" required>
+                    <input type="checkbox" id="condiciones" name="condiciones" required aria-describedby="error-condiciones">
                     <label for="condiciones">Acepto las condiciones y políticas de reserva de QuestPass CR.</label>
+                    <span id="error-condiciones" class="mensaje-error" hidden>Acepte las condiciones para continuar.</span>
                 </p>
             </fieldset>
 

@@ -6,6 +6,11 @@
     <title>Contacto | QuestPass CR</title>
     <meta name="description" content="Formulario de contacto y consultas generales para QuestPass CR.">
     <link rel="stylesheet" href="assets/css/base.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/datos.js" defer></script>
+    <script src="assets/js/contacto.js" defer></script>
+    <script src="assets/js/formulario-secuencial.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
@@ -31,28 +36,32 @@
             <h2>Envíanos un mensaje</h2>
             <p>¿Tienes dudas o preguntas sobre alguna experiencia de QuestPass CR? Completa el formulario a continuación y te responderemos a la brevedad.</p>
 
-            <form action="#" method="POST">
+            <form id="formulario-contacto" novalidate>
                 <fieldset>
                     <legend>Enviar un mensaje</legend>
 
                     <p>
                         <label for="nombre">Nombre completo:</label><br>
-                        <input type="text" id="nombre" name="nombre" minlength="3" maxlength="60" required>
+                        <input type="text" id="nombre" name="nombre" minlength="3" maxlength="60" required autofocus aria-describedby="error-nombre">
+                        <span id="error-nombre" class="mensaje-error" hidden>Ingrese su nombre.</span>
                     </p>
 
                     <p>
                         <label for="correo">Correo electrónico:</label><br>
-                        <input type="email" id="correo" name="correo" required>
+                        <input type="email" id="correo" name="correo" required aria-describedby="error-correo">
+                        <span id="error-correo" class="mensaje-error" hidden>Ingrese un correo válido.</span>
                     </p>
 
                     <p>
                         <label for="asunto">Asunto:</label><br>
-                        <input type="text" id="asunto" name="asunto" minlength="4" maxlength="80" required placeholder="Ej: Consulta sobre disponibilidad">
+                        <input type="text" id="asunto" name="asunto" minlength="4" maxlength="80" required placeholder="Ej: Consulta sobre disponibilidad" aria-describedby="error-asunto">
+                        <span id="error-asunto" class="mensaje-error" hidden>Ingrese el asunto.</span>
                     </p>
 
                     <p>
                         <label for="mensaje">Mensaje:</label><br>
-                        <textarea id="mensaje" name="mensaje" rows="5" minlength="10" required placeholder="Escribe aquí tu consulta..."></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="5" minlength="10" required placeholder="Escribe aquí tu consulta..." aria-describedby="error-mensaje"></textarea>
+                        <span id="error-mensaje" class="mensaje-error" hidden>Escriba el mensaje.</span>
                     </p>
                 </fieldset>
 
